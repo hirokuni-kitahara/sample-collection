@@ -1,0 +1,14 @@
+# test
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: Hello world
+    sample.collection.helloworld:
+      msg: "{{ 'This is a sample message.' if msg is not defined else msg }}"
+    register: result
+    # ignore_errors: yes
+
+  - debug:
+      var: result
+
